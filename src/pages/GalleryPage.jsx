@@ -23,9 +23,9 @@ export default function GalleryPage() {
           
           <div className="w-32 h-1 bg-gradient-to-r from-transparent via-brand-accent to-transparent mx-auto mb-10" />
           
-          <p className="text-sm sm:text-lg md:text-2xl max-w-xl mx-auto leading-relaxed font-light italic px-6 sm:px-4">
+          <p className="text-white text-sm sm:text-lg md:text-2xl max-w-xl mx-auto leading-relaxed font-light italic px-6 sm:px-4">
             &ldquo;A curated journey through our premium living spaces, capturing the essence of comfort and style.&rdquo;
-          </p>
+           </p>
         </div>
 
         {/* Floating Decorative Elements */}
