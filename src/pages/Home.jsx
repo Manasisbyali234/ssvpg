@@ -1,29 +1,34 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import buildingImg from "../assets/building.jpg";
+import room4 from "../assets/room4.jpg";
+import room5 from "../assets/room5.jpg";
+import preview1 from "../assets/preview1.jpg";
 import { FaShieldAlt, FaUtensils, FaMapMarkerAlt, FaHeadset, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import RoomCard from "../components/RoomCard";
 import TestimonialCard from "../components/TestimonialCard";
 import MapSection from "../components/MapSection";
+import lifestyleIllustration from "../assets/home-lifestyle.png";
 import { roomTypes, testimonials } from "../data/pgData";
 
 const heroSlides = [
   {
-    image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1600&h=900&fit=crop",
+    image: buildingImg,
     title: "Your Home Away\nFrom Home",
     subtitle: "Premium PG for Women in Bengaluru",
   },
   {
-    image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1600&h=900&fit=crop",
+    image: room4,
     title: "Comfort &\nSafety First",
     subtitle: "Fully furnished rooms with 24/7 security",
   },
   {
-    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1600&h=900&fit=crop",
+    image: room5,
     title: "Delicious\nHome Food",
     subtitle: "Fresh home-cooked meals every day",
   },
   {
-    image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1600&h=900&fit=crop",
+    image: preview1,
     title: "Prime Location\nIn Bengaluru",
     subtitle: "Close to IT hubs, hospitals & transport",
   },
@@ -48,82 +53,130 @@ export default function Home() {
   const next = () => setCurrent((c) => (c + 1) % heroSlides.length);
 
   return (
-    <main>
+    <main className="overflow-x-hidden">
       {/* Hero Carousel */}
-      <section className="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
+      <section className="relative h-screen flex items-center justify-center text-center overflow-hidden">
         {heroSlides.map((slide, i) => (
           <div
             key={i}
-            className="absolute inset-0 transition-opacity duration-1000"
+            className={`absolute inset-0 transition-all duration-[2000ms] ease-out transform ${
+              i === current ? "opacity-100 scale-105" : "opacity-0 scale-100"
+            }`}
             style={{
-              opacity: i === current ? 1 : 0,
               backgroundImage: `url('${slide.image}')`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
           />
         ))}
-        <div className="absolute inset-0 bg-black/55" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
 
-        {/* Prev / Next */}
-        <button onClick={prev} className="absolute left-2 sm:left-4 z-20 bg-white/20 hover:bg-white/40 text-white p-2 sm:p-3 rounded-full transition-colors">
-          <FaChevronLeft size={18} />
+        {/* Navigation Arrows */}
+        <button onClick={prev} className="absolute left-6 z-20 bg-white/10 hover:bg-brand-accent backdrop-blur-md text-white p-4 rounded-full transition-all duration-300 hidden md:block group">
+          <FaChevronLeft size={20} className="group-hover:-translate-x-0.5 transition-transform" />
         </button>
-        <button onClick={next} className="absolute right-2 sm:right-4 z-20 bg-white/20 hover:bg-white/40 text-white p-2 sm:p-3 rounded-full transition-colors">
-          <FaChevronRight size={18} />
+        <button onClick={next} className="absolute right-6 z-20 bg-white/10 hover:bg-brand-accent backdrop-blur-md text-white p-4 rounded-full transition-all duration-300 hidden md:block group">
+          <FaChevronRight size={20} className="group-hover:translate-x-0.5 transition-transform" />
         </button>
 
-        <div className="relative z-10 px-4 max-w-3xl mx-auto">
-          <span className="inline-block bg-blue-600/90 text-white text-xs font-semibold px-4 py-1.5 rounded-full mb-6 tracking-wide uppercase">
-            Women Only · Bengaluru
-          </span>
-          <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold text-white mb-4 leading-tight" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+        <div className="relative z-10 px-6 max-w-5xl mx-auto">
+          <div className="inline-flex items-center gap-2 bg-brand-accent/90 backdrop-blur-sm text-white text-[10px] uppercase tracking-[0.3em] font-bold px-6 py-2 rounded-full mb-8 animate-fade-in-down">
+            <span className="w-2 h-2 bg-white rounded-full animate-pulse" />
+            Premium Women's Living · Bengaluru
+          </div>
+          <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-[1.1] transition-all duration-700">
             {heroSlides[current].title.split("\n").map((line, i) => (
-              <span key={i}>{line}{i === 0 && <br />}</span>
+              <span key={i} className="block drop-shadow-2xl">{line}</span>
             ))}
           </h1>
-          <p className="text-base md:text-xl text-white/80 mb-8">{heroSlides[current].subtitle}</p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link to="/rooms" className="bg-blue-600 text-white px-8 py-3.5 rounded-full font-semibold text-base hover:bg-blue-700 transition-colors">
-              Explore Rooms
+          <p className="text-base md:text-2xl text-white/90 mb-10 max-w-2xl mx-auto font-medium leading-relaxed drop-shadow-lg px-4">
+            {heroSlides[current].subtitle}
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link to="/rooms" className="w-full sm:w-auto bg-white text-brand-primary px-10 py-4 rounded-full font-bold text-base hover:bg-brand-accent hover:text-white transition-all duration-300 shadow-2xl transform hover:-translate-y-1">
+              EXPLORE SUITES
             </Link>
-            <Link to="/contact" className="bg-white/20 backdrop-blur text-white border border-white/40 px-8 py-3.5 rounded-full font-semibold text-base hover:bg-white/30 transition-colors">
-              Contact Us
+            <Link to="/contact" className="w-full sm:w-auto bg-transparent border-2 border-white/50 backdrop-blur-sm text-white px-10 py-4 rounded-full font-bold text-base hover:bg-white/10 hover:border-white transition-all duration-300 transform hover:-translate-y-1">
+              BOOK A VISIT
             </Link>
           </div>
         </div>
 
-        {/* Dots */}
-        <div className="absolute bottom-8 z-20 flex gap-2">
-          {heroSlides.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setCurrent(i)}
-              className={`w-2.5 h-2.5 rounded-full transition-all ${
-                i === current ? "bg-white scale-125" : "bg-white/50"
-              }`}
-            />
-          ))}
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-4">
+          <div className="flex gap-3">
+            {heroSlides.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrent(i)}
+                className={`transition-all duration-500 ${
+                  i === current ? "w-12 bg-brand-accent" : "w-3 bg-white/40 hover:bg-white/60"
+                } h-1 rounded-full`}
+              />
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-2" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-            Why Choose SSV Stays?
-          </h2>
-          <p className="text-center text-gray-500 mb-12">Everything you need for a comfortable and safe stay</p>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <section className="section-padding bg-brand-secondary/30">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-4">
+              Elevated Living Experience
+            </h2>
+            <div className="w-20 h-1 bg-brand-accent mx-auto mb-6" />
+            <p className="text-slate-600 text-lg leading-relaxed">
+              Experience a blend of luxury, safety, and community. We've redefined PG living with premium amenities and a focus on your well-being.
+            </p>
+          </div>
+          
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map(({ icon: Icon, title, desc }) => (
-              <div key={title} className="text-center p-6 rounded-2xl bg-blue-50 hover:-translate-y-1 transition-transform duration-300">
-                <div className="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Icon className="text-blue-600" size={24} />
+              <div key={title} className="group bg-white p-8 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100 hover:-translate-y-2">
+                <div className="w-16 h-16 bg-brand-secondary rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-primary group-hover:text-white transition-colors duration-500">
+                  <Icon size={28} className="text-brand-primary group-hover:text-white" />
                 </div>
-                <h3 className="font-bold text-gray-800 mb-2 text-lg" style={{ fontFamily: "'Cormorant Garamond', serif" }}>{title}</h3>
-                <p className="text-sm text-gray-600 leading-relaxed">{desc}</p>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">{title}</h3>
+                <p className="text-slate-600 text-sm leading-relaxed">{desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Vibrant Community Section */}
+      <section className="section-padding bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="order-2 lg:order-1">
+              <img 
+                src={lifestyleIllustration} 
+                alt="Community Lifestyle" 
+                className="w-full h-auto drop-shadow-[0_20px_50px_rgba(26,77,140,0.15)] animate-float" 
+              />
+            </div>
+            <div className="order-1 lg:order-2 space-y-8">
+              <span className="inline-block bg-brand-secondary text-brand-primary px-6 py-2 rounded-full text-[10px] md:text-xs font-black tracking-widest uppercase">
+                More Than Just a Room
+              </span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight">
+                A Vibrant <span className="text-brand-accent italic">Community</span> of Women
+              </h2>
+              <p className="text-slate-600 text-base md:text-lg leading-relaxed font-medium">
+                At SSV Stays, you're not just renting a space; you're joining a supportive network of ambitious women. Our common areas and community focus create the perfect environment to make lifelong friends and professional connections.
+              </p>
+              <div className="grid grid-cols-2 gap-6 pt-4">
+                <div className="p-6 bg-slate-50 rounded-2xl border border-slate-100">
+                  <h4 className="text-2xl font-bold text-brand-primary mb-1">500+</h4>
+                  <p className="text-slate-500 text-xs uppercase tracking-widest font-bold">Happy Residents</p>
+                </div>
+                <div className="p-6 bg-slate-50 rounded-2xl border border-slate-100">
+                  <h4 className="text-2xl font-bold text-brand-primary mb-1">24/7</h4>
+                  <p className="text-slate-500 text-xs uppercase tracking-widest font-bold">Expert Care</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

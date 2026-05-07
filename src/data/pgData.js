@@ -14,26 +14,42 @@ export const pgInfo = {
   lng: 77.5800,
 };
 
+import room1 from "../assets/room1.jpg";
+import room2 from "../assets/room2.jpg";
+import room3 from "../assets/room3.jpg";
+import room4 from "../assets/room4.jpg";
+import room5 from "../assets/room5.jpg";
+import room6 from "../assets/room6.jpg";
+import room7 from "../assets/room7.jpg";
+import room8 from "../assets/room8.jpg";
+import room9 from "../assets/room9.jpg";
+import room10 from "../assets/room10.jpg";
+import room11 from "../assets/room11.jpg";
+import wash1 from "../assets/wash1.jpg";
+import wash2 from "../assets/wash2.jpg";
+import wash3 from "../assets/wash3.jpg";
+import wash4 from "../assets/wash4.jpg";
+
 export const roomTypes = [
   {
     id: "single",
     type: "Single Occupancy",
     price: 10000,
-    image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&h=500&fit=crop",
+    image: room1,
     features: ["Private Room", "High-Speed WiFi", "Home Cooked Food", "Laundry Service", "AC", "Attached Washroom"],
   },
   {
     id: "double",
     type: "Double Sharing",
     price: 7000,
-    image: "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=800&h=500&fit=crop",
+    image: room2,
     features: ["Shared Room (2 People)", "High-Speed WiFi", "Home Cooked Food", "Laundry Service", "AC", "Common Washroom"],
   },
   {
     id: "triple",
     type: "Triple Sharing",
     price: 5500,
-    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=500&fit=crop",
+    image: room3,
     features: ["Shared Room (3 People)", "High-Speed WiFi", "Home Cooked Food", "Laundry Service", "Fan/AC", "Common Washroom"],
   },
 ];
@@ -99,18 +115,21 @@ export const testimonials = [
 ];
 
 export const galleryImages = [
-  { id: 1, src: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&h=500&fit=crop", alt: "Single Room" },
-  { id: 2, src: "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=800&h=500&fit=crop", alt: "Double Room" },
-  { id: 3, src: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=500&fit=crop", alt: "Triple Room" },
-  { id: 4, src: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=500&fit=crop", alt: "Kitchen" },
-  { id: 5, src: "https://images.unsplash.com/photo-1567521464027-f127ff144326?w=800&h=500&fit=crop", alt: "Dining Area" },
-  { id: 6, src: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&h=500&fit=crop", alt: "Bathroom" },
-  { id: 7, src: "https://images.unsplash.com/photo-1540518614846-7eded433c457?w=800&h=500&fit=crop", alt: "Common Area" },
-  { id: 8, src: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=800&h=500&fit=crop", alt: "Study Room" },
-  { id: 9, src: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h=500&fit=crop", alt: "Balcony" },
-  { id: 10, src: "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&h=500&fit=crop", alt: "Living Space" },
-  { id: 11, src: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=800&h=500&fit=crop", alt: "Bedroom View" },
-  { id: 12, src: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&h=500&fit=crop", alt: "Room Interior" },
+  { id: 1, src: room1, alt: "Room View 1", category: "Rooms" },
+  { id: 2, src: room2, alt: "Room View 2", category: "Rooms" },
+  { id: 3, src: room3, alt: "Room View 3", category: "Rooms" },
+  { id: 4, src: room4, alt: "Room View 4", category: "Rooms" },
+  { id: 5, src: room5, alt: "Room View 5", category: "Rooms" },
+  { id: 6, src: room6, alt: "Room View 6", category: "Rooms" },
+  { id: 7, src: room7, alt: "Room View 7", category: "Rooms" },
+  { id: 8, src: room8, alt: "Room View 8", category: "Rooms" },
+  { id: 9, src: room9, alt: "Room View 9", category: "Rooms" },
+  { id: 10, src: room10, alt: "Room View 10", category: "Rooms" },
+  { id: 11, src: room11, alt: "Room View 11", category: "Rooms" },
+  { id: 12, src: wash1, alt: "Washroom 1", category: "Washrooms" },
+  { id: 13, src: wash2, alt: "Washroom 2", category: "Washrooms" },
+  { id: 14, src: wash3, alt: "Washroom 3", category: "Washrooms" },
+  { id: 15, src: wash4, alt: "Washroom 4", category: "Washrooms" },
 ];
 
 export const houseRules = [

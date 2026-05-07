@@ -1,6 +1,8 @@
 import { FaShieldAlt, FaHeart, FaLeaf, FaUsers } from "react-icons/fa";
 import HouseRules from "../components/HouseRules";
 import MapSection from "../components/MapSection";
+import buildingImg from "../assets/building.jpg";
+import aboutIllustration from "../assets/about-illustration.png";
 
 const differentiators = [
   { icon: FaShieldAlt, title: "Safety First", desc: "CCTV, secure entry, and women-only policy ensures maximum safety for all residents." },
@@ -11,61 +13,96 @@ const differentiators = [
 
 export default function About() {
   return (
-    <main className="pt-20">
+    <main className="pt-24">
       {/* Header */}
-      <section className="bg-gradient-to-br from-blue-50 to-blue-100 py-16 text-center">
-        <h1 className="text-3xl sm:text-5xl font-bold text-gray-800 mb-3" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-          About SSV Stays
-        </h1>
-        <p className="text-gray-500 max-w-xl mx-auto">
-          A safe, comfortable, and welcoming home for women in Bengaluru.
-        </p>
+      <section className="bg-brand-secondary/50 py-24 text-center relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+          <div className="absolute top-10 left-10 w-64 h-64 rounded-full bg-brand-accent blur-3xl" />
+          <div className="absolute bottom-10 right-10 w-96 h-96 rounded-full bg-brand-primary blur-3xl" />
+        </div>
+        <div className="relative z-10 px-6">
+          <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold text-slate-900 mb-6">
+            Our Story
+          </h1>
+          <div className="w-24 h-1.5 bg-brand-accent mx-auto mb-8 rounded-full" />
+          <p className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto font-medium leading-relaxed text-slate-600">
+            Founded with a vision to create the safest and most comfortable living space for women in Bengaluru.
+          </p>
+        </div>
       </section>
 
       {/* About Story */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="rounded-2xl overflow-hidden shadow-md">
-              <img
-                src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h=600&fit=crop"
-                alt="SSV Stays Building"
-                className="w-full h-80 object-cover"
-              />
+      <section className="section-padding bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-20 items-center mb-32">
+            <div className="relative group">
+              <div className="absolute -inset-4 bg-brand-secondary rounded-[3rem] -rotate-3 transition-transform group-hover:rotate-0 duration-500" />
+              <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
+                <img
+                  src={buildingImg}
+                  alt="SSV Stays Building"
+                  className="w-full h-[300px] sm:h-[400px] md:h-[500px] object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+              </div>
             </div>
-            <div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-                Our Story
+            <div className="space-y-8">
+              <span className="text-brand-primary font-bold tracking-[0.3em] uppercase text-xs bg-brand-secondary px-6 py-2 rounded-full">
+                Established 2018
+              </span>
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-slate-900 leading-tight">
+                Where Safety Meets <br />
+                <span className="text-brand-accent italic">Sophistication</span>
               </h2>
-              <p className="text-gray-600 leading-relaxed mb-4">
-                SSV Stays – Blossom PG for Women was founded with a single mission: to provide a safe, comfortable, and affordable home for women relocating to Bengaluru for work or studies.
+              <div className="space-y-6 text-slate-600 text-base md:text-lg leading-relaxed">
+                <p>
+                  SSV Stays – Blossom PG for Women was founded with a single mission: to provide a safe, comfortable, and affordable home for women relocating to Bengaluru for work or studies.
+                </p>
+                <p>
+                  Located in the heart of Sahakar Nagar, we understand the challenges women face when moving to a new city. That's why we've created a space that feels like home — with nutritious food, clean rooms, and a caring community.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* New Illustration Section */}
+          <div className="grid lg:grid-cols-2 gap-10 md:gap-20 items-center">
+            <div className="order-2 lg:order-1 space-y-6">
+              <h3 className="text-2xl md:text-3xl font-bold text-slate-900" style={{ fontFamily: "'Cormorant Garamond', serif" }}>Designed for Your Lifestyle</h3>
+              <p className="text-slate-600 text-base md:text-lg leading-relaxed">
+                We believe that living away from home shouldn't mean compromising on quality of life. Our spaces are thoughtfully curated to inspire creativity, provide relaxation, and foster a sense of belonging.
               </p>
-              <p className="text-gray-600 leading-relaxed mb-4">
-                Located in the heart of Sahakar Nagar, we understand the challenges women face when moving to a new city. That's why we've created a space that feels like home — with nutritious food, clean rooms, and a caring community.
-              </p>
-              <p className="text-gray-600 leading-relaxed">
-                Our residents are our family. We take pride in maintaining the highest standards of safety, hygiene, and hospitality so that every woman who stays with us can focus on her goals without worry.
-              </p>
+              <div className="p-8 bg-brand-secondary/30 rounded-3xl border border-brand-accent/10">
+                 <p className="font-medium text-slate-900 italic">
+                  "Our residents are our family. We take pride in maintaining the highest standards of safety, hygiene, and hospitality."
+                </p>
+              </div>
+            </div>
+            <div className="order-1 lg:order-2 flex justify-center">
+              <img 
+                src={aboutIllustration} 
+                alt="Lifestyle Illustration" 
+                className="w-full max-w-md h-auto drop-shadow-2xl animate-float"
+              />
             </div>
           </div>
         </div>
       </section>
 
       {/* Why Different */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-2" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-            Why We're Different
-          </h2>
-          <p className="text-center text-gray-500 mb-12">What sets SSV Stays apart from the rest</p>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <section className="section-padding bg-slate-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">What Sets Us Apart</h2>
+            <p className="text-slate-500 text-lg italic">"A standard of excellence in every detail"</p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {differentiators.map(({ icon: Icon, title, desc }) => (
-              <div key={title} className="bg-white rounded-2xl p-6 shadow-sm hover:-translate-y-1 transition-transform duration-300 text-center">
-                <div className="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Icon className="text-blue-600" size={22} />
+              <div key={title} className="bg-white rounded-[2.5rem] p-10 shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100 text-center group">
+                <div className="w-20 h-20 bg-brand-secondary rounded-2xl flex items-center justify-center mx-auto mb-8 group-hover:bg-brand-primary group-hover:rotate-12 transition-all duration-500">
+                  <Icon className="text-brand-primary group-hover:text-white" size={30} />
                 </div>
-                <h3 className="font-bold text-gray-800 mb-2 text-lg" style={{ fontFamily: "'Cormorant Garamond', serif" }}>{title}</h3>
-                <p className="text-sm text-gray-600 leading-relaxed">{desc}</p>
+                <h3 className="font-bold text-slate-900 mb-4 text-xl">{title}</h3>
+                <p className="text-slate-600 leading-relaxed text-sm font-medium">{desc}</p>
               </div>
             ))}
           </div>

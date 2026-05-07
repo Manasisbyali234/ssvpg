@@ -1,12 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Nunito:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
-* { scroll-behavior: smooth; }
-
-body {
-  font-family: 'Nunito', sans-serif;
+@theme {
+  --color-brand-primary: #1a4d8c;
+  --color-brand-secondary: #fdf6f0;
+  --color-brand-accent: #c5a059;
 }
 
-h1, h2, h3, h4 {
-  font-family: 'Cormorant Garamond', serif;
+@layer base {
+  * {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    @apply text-slate-800 bg-white antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Cormorant Garamond', serif;
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+  
+  .glass-morphism {
+    @apply bg-white/70 backdrop-blur-md border border-white/20;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-primary to-blue-600;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
 }
