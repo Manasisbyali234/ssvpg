@@ -10,12 +10,7 @@ export default function RoomCard({ room }) {
           alt={room.type} 
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
         />
-        <div className="absolute top-4 right-4 bg-white/90 backdrop-blur px-4 py-1.5 rounded-full shadow-lg">
-          <span className="text-brand-primary font-bold text-sm">
-            ₹{room.price.toLocaleString()}
-            <span className="text-[10px] text-slate-500 font-medium ml-1">/ MONTH</span>
-          </span>
-        </div>
+
       </div>
       
       <div className="p-8 flex flex-col flex-grow">
